@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LISTO - Menú Cafetería</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+  <nav class="bg-[#4CAF50] text-white p-4 shadow-md flex justify-between items-center">
+    <a href="edificios.html" class="text-sm bg-green-700 px-3 py-1 rounded-lg hover:bg-green-800">⬅ Volver</a>
+    <span class="text-2xl font-black tracking-wider text-[#FFEB3B]">LISTO</span>
+    <span class="text-sm font-semibold">Total Carrito: $63.00</span>
+  </nav>
+
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
+    
+    <section class="lg:col-span-2">
+      <h2 class="text-2xl font-extrabold text-gray-800 mb-6">Menú Disponible</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center">
+          <div>
+            <h4 class="font-bold text-gray-800">Chilaquiles con Pollo</h4>
+            <p class="text-xs text-gray-400 mt-1">Con crema, queso y frijoles.</p>
+            <span class="text-base font-black text-gray-700 block mt-2">$45.00</span>
+          </div>
+          <button class="bg-[#4CAF50] text-white p-2.5 rounded-xl font-bold hover:bg-green-600">+</button>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center">
+          <div>
+            <h4 class="font-bold text-gray-800">Café Americano</h4>
+            <p class="text-xs text-gray-400 mt-1">Caliente, tamaño grande 400ml.</p>
+            <span class="text-base font-black text-gray-700 block mt-2">$18.00</span>
+          </div>
+          <button class="bg-[#4CAF50] text-white p-2.5 rounded-xl font-bold hover:bg-green-600">+</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 h-fit">
+      <h3 class="text-xl font-bold text-gray-800 mb-4 pb-2 border-b">Tu Pedido</h3>
+      
+      <div class="space-y-3 mb-6 text-sm">
+        <div class="flex justify-between">
+          <span>1x Chilaquiles con Pollo</span>
+          <span class="font-bold">$45.00</span>
+        </div>
+        <div class="flex justify-between">
+          <span>1x Café Americano</span>
+          <span class="font-bold">$18.00</span>
+        </div>
+      </div>
+
+      <div class="border-t pt-4 mb-6 flex justify-between font-extrabold text-lg text-gray-800">
+        <span>Total:</span>
+        <span>$63.00</span>
+      </div>
+
+      <button onclick="alert('¡Pronto integraremos la pasarela de pagos con Stripe para procesar los $63.00!')" class="w-full bg-[#2196F3] text-white font-bold py-3 rounded-xl hover:bg-blue-600 transition-colors shadow-sm">
+        Proceder al Pago en Línea
+      </button>
+    </aside>
+
+  </main>
+</body>
+</html>

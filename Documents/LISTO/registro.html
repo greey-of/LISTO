@@ -4,47 +4,152 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LISTO - Registro</title>
+
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/auth.css">
 </head>
+
 <body class="page page-login">
 
   <div class="login-card card">
     <div class="login-header">
       <h1 class="site-title">Registro</h1>
-      <p class="site-subtitle">Crea tu cuenta y empieza a pedir con LISTO.</p>
+      <p class="site-subtitle">
+        Crea tu cuenta y empieza a pedir con LISTO.
+      </p>
     </div>
 
-    <form action="edificios.html" method="GET" class="register-form">
+    <form id="registerForm" class="register-form">
+
       <div class="field-group">
         <label class="form-label">Nombre</label>
-        <input type="text" required placeholder="Ej. Juan Pérez" class="form-input">
+        <input
+          id="nombre"
+          type="text"
+          required
+          placeholder="Ej. Juan Pérez"
+          class="form-input">
       </div>
 
       <div class="field-group">
         <label class="form-label">Número de boleta</label>
-        <input type="text" required placeholder="Ej. 2026600001" class="form-input">
+        <input
+          id="boleta"
+          type="text"
+          required
+          placeholder="Ej. 2026600001"
+          class="form-input">
       </div>
 
       <div class="field-group">
         <label class="form-label">Carrera</label>
-        <input type="text" required placeholder="Ej. Ingeniería" class="form-input">
+        <input
+          id="carrera"
+          type="text"
+          required
+          placeholder="Ej. Ingeniería en Informática"
+          class="form-input">
       </div>
 
       <div class="field-group">
         <label class="form-label">Correo</label>
-        <input type="email" required placeholder="ejemplo@ejemplo.com" class="form-input">
+        <input
+          id="correo"
+          type="email"
+          required
+          placeholder="ejemplo@ejemplo.com"
+          class="form-input">
       </div>
 
       <div class="field-group">
         <label class="form-label">Contraseña</label>
-        <input type="password" required placeholder="••••••••" class="form-input">
+        <input
+          id="password"
+          type="password"
+          required
+          placeholder="••••••••"
+          class="form-input">
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block">Registrar</button>
-      <a href="index.html" class="btn btn-secondary btn-block">Volver al inicio</a>
+      <button type="submit" class="btn btn-primary btn-block">
+        Registrar
+      </button>
+
+      <a href="index.html" class="btn btn-secondary btn-block">
+        Volver al inicio
+      </a>
+
     </form>
   </div>
+
   <script src="js/app.js"></script>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const boleta = document.getElementById("boleta").value.trim();
+      const carrera = document.getElementById("carrera").value.trim();
+      const correo = document.getElementById("correo").value.trim().toLowerCase();
+      const password = document.getElementById("password").value;
+
+      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+      const usuarioExistente = usuarios.find(usuario =>
+        usuario.correo === correo ||
+        usuario.boleta === boleta
+      );
+
+      if (usuarioExistente) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Usuario ya registrado',
+          html: `
+            <b>Ya existe una cuenta</b><br>
+            con ese correo o número de boleta.
+          `,
+          confirmButtonText: 'Entendido',
+          confirmButtonColor: '#f59e0b'
+        });
+        return;
+      }
+
+      const nuevoUsuario = {
+        nombre,
+        boleta,
+        carrera,
+        correo,
+        password,
+        fechaRegistro: new Date().toLocaleString()
+      };
+
+      usuarios.push(nuevoUsuario);
+
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+      Swal.fire({
+        icon: 'success',
+        title: '¡Registro exitoso!',
+        html: `
+          <b>Bienvenido a LISTO</b><br>
+          Tu cuenta ha sido creada correctamente.
+        `,
+        confirmButtonText: 'Continuar',
+        confirmButtonColor: '#22c55e'
+      }).then(() => {
+
+        document.getElementById("registerForm").reset();
+
+        window.location.href = "edificios.html";
+      });
+
+    });
+  </script>
+
 </body>
 </html>

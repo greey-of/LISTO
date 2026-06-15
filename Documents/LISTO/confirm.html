@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LISTO - Confirmación de Pedido</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/confirm.css">
+</head>
+<body class="page page-confirm">
+
+  <nav class="page-nav">
+    <a href="menu.html" class="nav-back">⬅ Volver</a>
+    <span class="nav-brand">LISTO</span>
+    <span class="nav-info" id="location-info">Ubicación</span>
+  </nav>
+
+  <main class="page-main confirm-layout">
+    <section class="ticket card">
+      <div class="card-header">
+        <h2 class="ticket-title">PEDIDO <span id="order-number">#LST-0000</span></h2>
+        <p class="ticket-sub">Resumen del pedido</p>
+      </div>
+
+      <div class="card-body">
+        <div class="order-list" id="order-list">
+          <!-- Items rendered here -->
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <div class="order-total">
+          <span>Total</span>
+          <strong id="order-total">$0.00</strong>
+        </div>
+        <div class="ticket-qr">
+          <img id="qr-img" alt="QR del pedido" />
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel card">
+      <div class="panel-body">
+        <h3 class="panel-title">¡GRACIAS POR TU COMPRA!</h3>
+        <p class="panel-sub">Tu pedido está en preparación.</p>
+
+        <div class="countdown" id="countdown">00:00</div>
+        <div class="estimated">Tiempo estimado</div>
+
+        <button id="pickup-btn" class="btn btn-primary btn-block">RECOGER AHORA</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="js/confirm.js"></script>
+</body>
+</html>

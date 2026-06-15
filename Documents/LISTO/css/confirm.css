@@ -1,0 +1,107 @@
+/* Styles for confirmation/ticket screen */
+.confirm-layout {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(20rem, 1fr) 360px;
+  max-width: 90rem;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.ticket {
+  padding: 0;
+  overflow: hidden;
+}
+
+.ticket .card-header {
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(90deg, rgba(34,197,94,0.06), rgba(37,99,235,0.03));
+}
+
+.ticket-title {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+}
+
+.ticket-sub {
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.card-body {
+  padding: 1rem 1.5rem;
+}
+
+.order-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.4rem;
+  border-bottom: 1px dashed #eef2f7;
+}
+
+.order-item strong { font-weight: 800; }
+
+.card-footer {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.order-total {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.order-total strong {
+  font-size: 1.35rem;
+  color: var(--color-text);
+}
+
+.ticket-qr img {
+  width: 120px;
+  height: 120px;
+  border-radius: 0.75rem;
+  background: #fff;
+  display: block;
+}
+
+.panel {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.panel-sub { color: var(--color-muted); margin-top: 0.45rem; }
+
+.countdown {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 1.25rem 0 0.4rem;
+  color: var(--color-primary);
+}
+
+.estimated { color: var(--color-muted); font-weight: 700; }
+
+#pickup-btn { margin-top: 1rem; }
+
+@media (max-width: 900px) {
+  .confirm-layout { grid-template-columns: 1fr; }
+  .panel { order: -1; }
+  .countdown { font-size: 2.75rem; }
+}

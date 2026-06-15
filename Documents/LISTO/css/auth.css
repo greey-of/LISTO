@@ -1,0 +1,56 @@
+.page-login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.login-card {
+  width: min(36rem, 100%);
+  padding: 2.25rem;
+  border-top: 0.85rem solid var(--color-primary);
+  border-radius: 2rem;
+}
+
+.login-header,
+.register-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.site-title,
+.register-title {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 900;
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.site-subtitle,
+.register-subtitle {
+  margin-top: 0.85rem;
+  color: var(--color-muted);
+  font-size: 1rem;
+}
+
+.login-form,
+.register-form {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.form-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.btn + .btn {
+  margin-top: 0.85rem;
+}
+
+@media (max-width: 520px) {
+  .login-card {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+}

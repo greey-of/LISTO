@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LISTO - Pago en Línea</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/payment.css">
+</head>
+<body class="page page-payment">
+
+  <nav class="page-nav">
+    <a href="menu.html" class="nav-back">⬅ Volver</a>
+    <span class="nav-brand">LISTO</span>
+    <span class="nav-info" id="location-info">Ubicación</span>
+  </nav>
+
+  <main class="page-main">
+    <section class="payment-card card">
+      <div class="card-header">
+        <h2>Pago en Línea</h2>
+        <p class="page-description">Revisa tu pedido y completa el pago seguro.</p>
+      </div>
+
+      <div class="card-body">
+        <div id="payment-order-list" class="order-list"></div>
+        <div class="summary-total">
+          <span>Total</span>
+          <strong id="payment-total">$0.00</strong>
+        </div>
+
+        <form id="payment-form">
+          <div class="field-group">
+            <label class="form-label">Nombre en la tarjeta</label>
+            <input class="form-input" type="text" required placeholder="Nombre completo" />
+          </div>
+
+          <div class="field-group">
+            <label class="form-label">Número de tarjeta</label>
+            <input class="form-input" type="text" required placeholder="1234 5678 9012 3456" />
+          </div>
+
+          <div style="display:flex;gap:0.75rem;">
+            <div class="field-group" style="flex:1;">
+              <label class="form-label">Expiración</label>
+              <input class="form-input" type="text" required placeholder="MM/AA" />
+            </div>
+            <div class="field-group" style="width:6.5rem;">
+              <label class="form-label">CVC</label>
+              <input class="form-input" type="text" required placeholder="123" />
+            </div>
+          </div>
+
+          <button id="pay-button" class="btn btn-primary btn-block" type="submit">Pagar ahora</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/payment.js"></script>
+</body>
+</html>
